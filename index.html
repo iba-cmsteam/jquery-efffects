@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>jQuery Crash Course | DOM Manipulation</title>
+	<link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+	<script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+	<style>
+		body{
+			font-size: 17px;
+			font-family: arial;
+			background: #f4f4f4;
+			line-height: 1.5em;
+		}
+		header{
+			background:#333;
+			color:#fff;
+			padding:20px;
+			text-align: center;
+			border-bottom: 4px #000 solid;
+			margin-bottom: 10px;
+		}
+		#container{
+			width:90%;
+			margin:auto;
+			padding:10px;
+		}
+		.myClass {
+			color:blue;
+			background:black;
+			width: 100%;
+			height: 500px;
+		}
+		
+		.container {
+			width: 81%;
+			height:500px;
+			margin: 0 auto;
+		}
+
+		.container h1:hover{
+			color: green;
+			cursor: pointer;
+		}
+
+		.box {
+			background: #333;
+			color: #fff;
+			width: 500px;
+			height: 150px;
+			padding: 40px;
+			text-align: center;
+			float: left;
+			margin: 10px;
+		}
+
+		#box2 {
+			margin-top: 20px;
+			background: #333;
+			width: 100px;
+			height: 100px;
+			position: relative;
+		}
+
+	</style>
+</head>
+<body>
+	<header>
+		<h1>jQuery Crash Course | EFFECTS & ANIMATE</h1>
+	</header>
+	<div id="container">
+
+			<!--Fading-->
+			<center><h2 style="color: green; font-family: sans-serif;">Fadding</h2></center>
+			<button class="btn btn-primary" id="btnFadeOut">Fade Out</button>
+			<button class="btn btn-primary" id="btnFadeIn">Fade In</button>
+			<button class="btn btn-primary" id="btnFadeTog">Fade Toggle</button>
+
+			<hr>
+
+			<!--Sliding-->
+			<center><h2 style="color: green; font-family: sans-serif;">Sliding</h2></center>
+			<button class="btn btn-primary" id="btnSlideDown">Slide Down</button>
+			<button class="btn btn-primary" id="btnSlideUp">Slide Up</button>
+			<button class="btn btn-primary" id="btnSlideTog">Slide Toggle</button>
+			<button class="btn btn-primary" id="btnStop">Stop</button>
+
+			<hr>
+
+			<!--Moving-->
+			<center><h2 style="color: green; font-family: sans-serif;">Moving</h2></center>
+			<button class="btn btn-primary" id="moveLeft">Move Right</button>
+			<button class="btn btn-primary" id="moveRight">Move Left</button>
+			<button class="btn btn-primary" id="moveAround">Move Around</button>
+			<div id="box2"><center><p style="color: #fff;padding: 20px;">Move Me!</p></center></div>
+
+			<hr>
+
+			<div class="container">
+				<div class="box">
+						<h1>Apps</h1>
+				</div>
+				<div class="box">
+						<h1>Development</h1>
+				</div>
+				<div class="box">
+						<h1>Department</h1>
+				</div>
+				<div class="box">
+						<h1>Atmosphere</h1>
+				</div>
+			</div>
+	</div>
+
+	<script>
+		$(document).ready(function(){
+			//FADDING
+				$('#btnFadeOut').click(function(){
+						$('.box').fadeOut(1500);
+				});
+
+				$('#btnFadeIn').click(function(){
+						$('.box').fadeIn(1500);
+				});
+
+				$('#btnFadeTog').click(function(){
+						$('.box').fadeToggle(1500);
+				});
+			//SLIDING
+				$('#btnSlideUp').click(function(){
+						$('.box').slideUp(1500);
+				});
+
+				$('#btnSlideDown').click(function(){
+						$('.box').slideDown(1500);
+				});
+
+				$('#btnSlideTog').click(function(){
+						$('.box').slideToggle(1500);
+				});
+
+				$('#btnStop').click(function(){
+						$('.box').stop(1500);
+				});
+			//MOVING
+				$('#moveLeft').click(function(){
+						$('#box2').animate({
+								left: 200,
+								height: '300px',
+								width: '300px',
+								opacity: '0.5'
+						});
+				});
+
+				$('#moveRight').click(function(){
+						$('#box2').animate({
+								right: 20
+
+						});
+				});
+
+				$('#moveAround').click(function(){
+						var box = $('#box2');
+							box.animate({
+								top: 50
+
+							});
+								box.animate({
+									right: 50
+
+							});
+									box.animate({
+										bottom: 50	
+
+							});
+										box.animate({
+												left: 50
+
+							});
+				});		
+		});
+	</script>
+</body>
+</html>
